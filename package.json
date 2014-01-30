@@ -5,17 +5,17 @@
   "keywords": [
     "yeoman-generator"
   ],
-  "homepage": "https://github.com/AgtLucas/generator-milagro",
-  "bugs": "https://github.com/AgtLucas/generator-milagro/issues",
+  "homepage": "https://github.com/agenciamilagro/generator-milagro",
+  "bugs": "https://github.com/agenciamilagro/generator-milagro/issues",
   "author": {
     "name": "Lucas",
     "email": "lucas@agtlucas.com",
-    "url": "https://github.com/AgtLucas"
+    "url": "https://github.com/agenciamilagro"
   },
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/AgtLucas/generator-milagro.git"
+    "url": "git://github.com/agenciamilagro/generator-milagro.git"
   },
   "scripts": {
     "test": "mocha"
