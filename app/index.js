@@ -50,7 +50,7 @@ MilagroGenerator.prototype.askForProject = function askForProject() {
   },
   {
     name: 'client',
-    message: 'Nome do cliente'
+    message: 'Nome do cliente: '
   }];
 
   this.prompt(prompts, function (props) {
@@ -82,6 +82,62 @@ MilagroGenerator.prototype.askForTools = function askForTools() {
 
     this.cssPre = props.cssPre;
     this.autoPre = props.autoPre;
+
+    cb();
+  }.bind(this));
+}
+
+MilagroGenerator.prototype.askForDirs = function askForDirs() {
+  var cb = this.async();
+  var cssPre = this.cssPre;
+  var slashFilter = function (input) {
+    return input.replace(/^\/*|\/*$/g, '');
+  };
+
+  var prompts = [{
+    name: 'cssDir',
+    message: 'Diretório CSS',
+    default: 'css',
+    filter: slashFilter
+  },
+  {
+    name: 'sassDir',
+    message: 'Diretório Sass',
+    default: 'sass',
+    filter: slashFilter
+  },
+  {
+    name: 'jsDir',
+    message: 'Diretório js',
+    default: 'js',
+    filter: slashFilter
+  },
+  {
+    name: 'imgDir',
+    message: 'Diretório imagens',
+    default: 'img',
+    filter: slashFilter
+  },
+  {
+    name: 'fontsDir',
+    message: 'Diretório fontes',
+    default: 'fonts',
+    filter: slashFilter
+  }];
+
+  this.prompt(prompts, function (props) {
+
+    this.cssDir = props.cssDir;
+    this.sassDir = props.sassDir;
+    this.jsDir = props.jsDir;
+    this.imgDir = props.imgDir;
+    this.fontsDir = props.fontsDir;
+
+    this.cssExDir = props.cssDir.split('/').pop();
+    this.sassExDir = props.sassDir.split('/').pop();
+    this.jsExDir = props.jsDir.split('/').pop();
+    this.imgExDir = props.imgDir.split('/').pop();
+    this.fontsExDir = props.fontsDir.split('/').pop();
 
     cb();
   }.bind(this));
