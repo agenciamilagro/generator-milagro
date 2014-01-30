@@ -83,7 +83,7 @@ MilagroGenerator.prototype.askForTools = function askForTools() {
     default: '1.8.3'
   }];
 
-  console.log(chalk.blue('Ferramentas/Frameworks/Libraries e pré-processadores: '));
+  console.log(chalk.blue('\nFerramentas/Frameworks/Libraries e pré-processadores: '));
 
   this.prompt(prompts, function (props) {
 
