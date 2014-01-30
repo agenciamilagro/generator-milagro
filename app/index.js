@@ -78,8 +78,7 @@ MilagroGenerator.prototype.askForTools = function askForTools() {
     name: 'jqVersion',
     type: 'list',
     message: 'Versão do jQuery',
-    choices: ['1.8.3', '1.11.0', '2.1.0'],
-    default: '1.8.3'
+    choices: ['1.8.3', '1.11.0', '2.1.0']
   }];
 
   console.log(chalk.blue('\nFerramentas/Frameworks/Libraries e pré-processadores: '));
