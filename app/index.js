@@ -143,6 +143,26 @@ MilagroGenerator.prototype.askForDirs = function askForDirs() {
   }.bind(this));
 }
 
+// TODO: Copiar templates
+
+MilagroGenerator.prototype.rubyDependencies = function () {
+  var execComplete;
+
+  console.log('\nExecutando ' + chalk.green.bold('bundle install') + ' para instalar as Ruby Gems');
+
+  this.conflicter.resolve(function (err) {
+    if (err) {
+      return.this.emit('error', err);
+    }
+
+    execComplete = shelljs.exec('bundle install');
+
+    if (execComplete.code === 0) {
+      bundle = true;
+    }
+  });
+};
+
 // MilagroGenerator.prototype.askFor = function askFor() {
 //   var cb = this.async();
 
