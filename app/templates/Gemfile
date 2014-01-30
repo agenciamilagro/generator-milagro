@@ -1,0 +1,5 @@
+source "http://rubygems.org"
+
+<% if (cssPre === 'sass') { %>
+gem 'sass', '>=3.2' <% } %><% if (cssPre === 'compass') { %>
+gem 'compass', '>=0.12'<% } %>
