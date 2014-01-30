@@ -149,10 +149,32 @@ MilagroGenerator.prototype.askForDirs = function askForDirs() {
   }.bind(this));
 }
 
-// TODO: Copiar templates
+// Templates
+MilagroGenerator.prototype.git = function git() {
+  this.template('gitignore', '.gitignore');
+  this.copy('gitattributes', '.gitattributes');
+};
+
+MilagroGenerator.prototype.gruntfile = function grunfile() {
+  this.template('Gruntfile.js');
+};
+
+MilagroGenerator.prototype.packageJSON = function packageJSON() {
+  this.template('_package.json', 'package.json');
+};
+
+MilagroGenerator.prototype.bower = function bower() {
+  this.copy('bowerrc', '.bowerrc');
+  this.template('_bower.json', 'bower.json');
+};
+
+MilagroGenerator.prototype.editor = function editor() {
+  this.copy('editorconfig', '.editorconfig');
+};
+
 MilagroGenerator.prototype.gemfile = function gemfile() {
   this.template('Gemfile');
-}
+};
 
 MilagroGenerator.prototype.rubyDependencies = function () {
   var execComplete;
