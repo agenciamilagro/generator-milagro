@@ -152,7 +152,7 @@ MilagroGenerator.prototype.rubyDependencies = function () {
 
   this.conflicter.resolve(function (err) {
     if (err) {
-      return.this.emit('error', err);
+      return this.emit('error', err);
     }
 
     execComplete = shelljs.exec('bundle install');
