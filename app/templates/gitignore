@@ -1,0 +1,11 @@
+# Node
+node_modules
+npm-debug.log
+
+# Sass
+.sass-cache
+
+# Others
+.tmp
+.dist
+*.DS_Store
