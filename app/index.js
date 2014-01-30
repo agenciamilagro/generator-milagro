@@ -74,14 +74,22 @@ MilagroGenerator.prototype.askForTools = function askForTools() {
     name: 'autoPre',
     type: 'confirm',
     message: 'CSS Autoprefixer?'
+  },
+  {
+    name: 'jqVersion',
+    type: 'list',
+    message: 'Versão do jQuery',
+    choices: ['1.8.3', '1.11.0', '2.1.0'],
+    default: '1.8.3'
   }];
 
-  console.log(chalk.blue('Ferramentas e pré-processadores: '));
+  console.log(chalk.blue('Ferramentas/Frameworks/Libraries e pré-processadores: '));
 
   this.prompt(prompts, function (props) {
 
     this.cssPre = props.cssPre;
     this.autoPre = props.autoPre;
+    this.jqVersion = props.jqVersion;
 
     cb();
   }.bind(this));
