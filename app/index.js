@@ -16,18 +16,27 @@ var MilagroGenerator = module.exports = function MilagroGenerator(args, options,
     return shelljs.which(depend);
   });
 
-  if (!dependenciesInstalled) {
+  if (dependenciesInstalled) {
     console.log(errr('Erro!') + ' Certifique-se de ter instalado: ' + chalk.white('Ruby') + ' e ' +chalk.white('Bundler (gem)') + '.');
     shelljs.exit(1);
   }
 
-  // yeoman.generators.Base.apply(this, arguments);
-
-  // this.on('end', function () {
-  //   this.installDependencies({ skipInstall: options['skip-install'] });
-  // });
+  yeoman.generators.Base.apply(this, arguments);
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
+  this.appname = path.basename(process.cwd());
+  this.gitInfo = {
+    name: this.user.git.username,
+    email: this.user.git.email,
+  };
+
+  this.on('end', function () {
+    this.installDependencies({ skipInstall: options['skip-install'] });
+
+    if (bundle === false) {
+      console.log(errr('Erro! Bundle install failed!') + 'Execute o comando manualmente, \'gem install bundle\'');
+    }
+  });
 };
 
 util.inherits(MilagroGenerator, yeoman.generators.Base);
