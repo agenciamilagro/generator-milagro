@@ -16,7 +16,7 @@ var MilagroGenerator = module.exports = function MilagroGenerator(args, options,
     return shelljs.which(depend);
   });
 
-  if (dependenciesInstalled) {
+  if (!dependenciesInstalled) {
     console.log(errr('Erro!') + ' Certifique-se de ter instalado: ' + chalk.white('Ruby') + ' e ' +chalk.white('Bundler (gem)') + '.');
     shelljs.exit(1);
   }
