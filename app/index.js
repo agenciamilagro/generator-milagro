@@ -1,7 +1,12 @@
 'use strict';
 var util = require('util');
 var path = require('path');
+var spaw = require('child_process').spaw;
+var chalk = require('chalk');
+var globule = require('globule');
+var shelljs = require('shelljs');
 var yeoman = require('yeoman-generator');
+var bundle = false;
 
 
 var MilagroGenerator = module.exports = function MilagroGenerator(args, options, config) {
