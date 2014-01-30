@@ -10,11 +10,21 @@ var bundle = false;
 
 
 var MilagroGenerator = module.exports = function MilagroGenerator(args, options, config) {
-  yeoman.generators.Base.apply(this, arguments);
 
-  this.on('end', function () {
-    this.installDependencies({ skipInstall: options['skip-install'] });
+  var dependenciesInstalled = ['bundle', 'ruby'].every(function (depend) {
+    return shelljs.which(depend);
   });
+
+  if (!dependenciesInstalled) {
+    console.log(chalk.red('Erro!') + ' Certifique-se de ter instalado: ' + chalk.white('Ruby') + ' e ' +chalk.white('Bundler (gem)') + '.');
+    shelljs.exit(1);
+  }
+
+  // yeoman.generators.Base.apply(this, arguments);
+
+  // this.on('end', function () {
+  //   this.installDependencies({ skipInstall: options['skip-install'] });
+  // });
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 };
