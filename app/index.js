@@ -62,6 +62,23 @@ MilagroGenerator.prototype.askForProject = function askForProject() {
   }.bind(this));
 };
 
+MilagroGenerator.prototype.askForTools = function askForTools() {
+  var cb = this.async();
+  var prompts = [{
+    name: 'cssPre',
+    type: 'list',
+    message: 'Pré-processadores CSS?',
+    choices: ['Compass', 'Sass', 'None']
+  },
+  {
+    name: 'autoPre',
+    type: 'confirm',
+    message: 'CSS Autoprefixer?'
+  }];
+
+  console.log(chalk.blue('Ferramentas e pré-processadores: '));
+}
+
 // MilagroGenerator.prototype.askFor = function askFor() {
 //   var cb = this.async();
 
