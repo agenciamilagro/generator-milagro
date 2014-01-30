@@ -144,6 +144,9 @@ MilagroGenerator.prototype.askForDirs = function askForDirs() {
 }
 
 // TODO: Copiar templates
+MilagroGenerator.prototype.gemfile = function gemfile() {
+  this.template('Gemfile');
+}
 
 MilagroGenerator.prototype.rubyDependencies = function () {
   var execComplete;
