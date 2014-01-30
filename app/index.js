@@ -34,7 +34,7 @@ var MilagroGenerator = module.exports = function MilagroGenerator(args, options,
     this.installDependencies({ skipInstall: options['skip-install'] });
 
     if (bundle === false) {
-      console.log(errr('Erro! Bundle install failed!') + 'Execute o comando manualmente, \'gem install bundle\'');
+      console.log(errr('Erro! Bundle install failed! ') + 'Execute o comando manualmente, \'gem install bundle\'');
     }
   });
 };
