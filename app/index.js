@@ -7,6 +7,7 @@ var globule = require('globule');
 var shelljs = require('shelljs');
 var yeoman = require('yeoman-generator');
 var bundle = false;
+var errr = chalk.bold.red;
 
 
 var MilagroGenerator = module.exports = function MilagroGenerator(args, options, config) {
@@ -16,7 +17,7 @@ var MilagroGenerator = module.exports = function MilagroGenerator(args, options,
   });
 
   if (!dependenciesInstalled) {
-    console.log(chalk.red('Erro!') + ' Certifique-se de ter instalado: ' + chalk.white('Ruby') + ' e ' +chalk.white('Bundler (gem)') + '.');
+    console.log(errr('Erro!') + ' Certifique-se de ter instalado: ' + chalk.white('Ruby') + ' e ' +chalk.white('Bundler (gem)') + '.');
     shelljs.exit(1);
   }
 
