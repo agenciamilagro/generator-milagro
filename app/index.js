@@ -50,7 +50,7 @@ MilagroGenerator.prototype.askForProject = function askForProject() {
   },
   {
     name: 'client',
-    message: 'Nome do cliente'
+    message: 'Nome do cliente: '
   }];
 
   this.prompt(prompts, function (props) {
@@ -82,6 +82,22 @@ MilagroGenerator.prototype.askForTools = function askForTools() {
 
     this.cssPre = props.cssPre;
     this.autoPre = props.autoPre;
+
+    cb();
+  }.bind(this));
+}
+
+MilagroGenerator.prototype.askForDirs = function askForDirs() {
+  var cb = this.async();
+  var prompts = [{
+    name: 'cssDir',
+    default: 'css',
+    message: 'Diretório CSS?'
+  }];
+
+  this.prompt(prompts, function (props) {
+
+    this.cssDir = props.cssDir;
 
     cb();
   }.bind(this));
