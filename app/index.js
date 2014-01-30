@@ -77,6 +77,14 @@ MilagroGenerator.prototype.askForTools = function askForTools() {
   }];
 
   console.log(chalk.blue('Ferramentas e pré-processadores: '));
+
+  this.prompt(prompts, function (props) {
+
+    this.cssPre = props.cssPre;
+    this.autoPre = props.autoPre;
+
+    cb();
+  }.bind(this));
 }
 
 // MilagroGenerator.prototype.askFor = function askFor() {
