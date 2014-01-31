@@ -1,4 +1,7 @@
 source "http://rubygems.org"
 <% if (cssPre === 'sass') { %>
 gem 'sass', '>=3.2'<% } %><%  if (cssPre === 'compass') { %>
-gem 'compass', '>=0.12'<%     } %>
+gem 'compass', '>=0.12'<% } %>
+<% if (cssFramework === 'foundation') { %>
+gem 'zurb-foundation', '~> 4.3.3'<% } %><% if (cssFramework === 'bootstrap') { %>
+gem 'bootstrap-sass' '~> 3.1.0'<% } %>
