@@ -92,6 +92,7 @@ MilagroGenerator.prototype.askForTools = function askForTools() {
   this.prompt(prompts, function (props) {
 
     this.cssPre = props.cssPre === 'None' ? false : props.cssPre.toLowerCase();
+    this.cssFramework = props.cssFramework === 'None' ? props.cssFramework.toLowerCase();
     this.autoPre = props.autoPre;
     this.jqVersion = props.jqVersion;
 
