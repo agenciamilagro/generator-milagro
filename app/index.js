@@ -70,6 +70,12 @@ MilagroGenerator.prototype.askForTools = function askForTools() {
     choices: ['Compass', 'Sass', 'None']
   },
   {
+    name: 'cssFramework',
+    type: 'list',
+    message: 'CSS Framework?',
+    choices: ['Foundation', 'Bootstrap', 'None']
+  },
+  {
     name: 'autoPre',
     type: 'confirm',
     message: 'CSS Autoprefixer?'
