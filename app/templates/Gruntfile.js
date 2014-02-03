@@ -186,6 +186,8 @@ module.exports = function (grunt) {
                 }]
             }
         },
+        concat: {},
+        uglify: {},
         cssmin: {
             dist: {
                 options: {
