@@ -286,11 +286,6 @@ module.exports = function (grunt) {
     });
 
     // Tasks
-    grunt.registerTask('server', function () {
-        grunt.log.warn('A task `server` não é mais utilizada. Use `grunt serve`');
-        grunt.task.run(['serve']);
-    });
-
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
             return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -303,6 +298,11 @@ module.exports = function (grunt) {
             'connect:livereload',
             'watch'
         ]);
+    });
+
+    grunt.registerTask('server', function () {
+        grunt.log.warn('A task `server` não é mais utilizada. Use `grunt serve`');
+        grunt.task.run(['serve']);
     });
 
     grunt.registerTask('test', [
