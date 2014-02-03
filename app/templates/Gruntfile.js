@@ -216,8 +216,50 @@ module.exports = function (grunt) {
                 }
             },
             copy: {
-
-            }
+                dist: {
+                    files: [{
+                        expand: true,
+                        dot: true,
+                        cwd: '<%%= yeoman.app %>',
+                        dest: '<%%= yeoman.dist %>'
+                    }]
+                }<% if (autoPre) { %>,
+                stageCss: {
+                    files: [{
+                        expand: true,
+                        dot: true,
+                        cwd: '<%%= yeoman.app %>/<%= cssDir %>',
+                        src: '**/*.css',
+                        dest: '.tmp/<%= cssDir %>'
+                    }]
+                }<% } %>
+            },
+            filerev: {
+                options: {
+                    length: 4
+                },
+                dist: {
+                    files: [{
+                        src: [
+                            '<%%= yeoman.dist %>/<%= jsDir %>/**/*.js',
+                            '<%%= yeoman.dist %>/<%= cssDir %>/**/*.css',
+                            '<%%= yeoman.dist %>/<%= imgDir %>/**/*.{gif,jpg,jpeg,png,svg,webp}',
+                            '<%%= yeoman.dist %>/<%= fontsDir %>/**/*.{eot*,otf,svg,ttf,woff}'
+                        ]
+                    }]
+                }
+            },
+            jshint: {
+                options: {
+                    jshint: '.jshintrc',
+                    reporter: require('jshint-stylish')
+                },
+                all: [
+                    'Gruntfile.js',
+                    '<%%= yeoman.app %>/<%= jsDir %>/**/*.js',
+                    // 'test/spec/**/*.js'
+                ]
+            },
         }
     });
 
