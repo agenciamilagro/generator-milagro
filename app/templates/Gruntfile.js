@@ -309,4 +309,12 @@ module.exports = function (grunt) {
         // TODO!!!!!!
     ]);
 
+    grunt.registerTask('check', [
+        'clean:server',<% if (cssPre === 'sass') { %>
+        'sass:server',<% } %><% (cssPre === 'compass') { %>
+        'compass:server',
+        'jshint:all',
+        'csslint:check'
+    ]);
+
 };
