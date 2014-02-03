@@ -317,4 +317,25 @@ module.exports = function (grunt) {
         'csslint:check'
     ]);
 
+    grunt.registerTask('build', [
+        'clean',
+        'concurrent:dist',
+        'useminPrepare',
+        'concat',<% if (autoPre) { %>
+        'autoprefixer:dist',<% } %>
+        'cssmin',
+        'uglify',
+        'imagemin',
+        'svgmin',
+        'filerev',
+        'usemin',
+        'htmlmin'
+    ]);
+
+    grunt.registerTask('default', [
+        'check',
+        'test',
+        'build'
+    ]);
+
 };
