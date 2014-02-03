@@ -162,7 +162,7 @@ MilagroGenerator.prototype.git = function git() {
   this.copy('gitattributes', '.gitattributes');
 };
 
-MilagroGenerator.prototype.gruntfile = function grunfile() {
+MilagroGenerator.prototype.gruntfile = function gruntfile() {
   this.template('Gruntfile.js');
 };
 
