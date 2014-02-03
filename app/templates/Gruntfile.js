@@ -193,7 +193,30 @@ module.exports = function (grunt) {
                 }
             },
             imagemin: {
-                // TODO: Finish this
+                dist: {
+                    options: {
+                        progressive: true
+                    },
+                    files: [{
+                        expand: true,
+                        cwd: '<%%= yeoman.dist %>',
+                        src: '**/*.{jpg,jpeg,png}',
+                        dest: '<%%= yeoman.dist %>'
+                    }]
+                }
+            },
+            svgmin: {
+                dist: {
+                    files: [{
+                        expand: true,
+                        cwd: '<%%= yeoman.dist %>',
+                        src: '**/*.svg',
+                        dest: '<%%= yeoman.dist %>'
+                    }]
+                }
+            },
+            copy: {
+
             }
         }
     });
