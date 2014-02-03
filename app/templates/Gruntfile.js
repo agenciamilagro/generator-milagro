@@ -285,4 +285,28 @@ module.exports = function (grunt) {
         }
     });
 
+    // Tasks
+    grunt.registerTask('server', function () {
+        grunt.log.warn('A task `server` não é mais utilizada. Use `grunt serve`');
+        grunt.task.run(['serve']);
+    });
+
+    grunt.registerTask('serve', function (target) {
+        if (target === 'dist') {
+            return grunt.task.run(['build', 'connect:dist:keepalive']);
+        }
+
+        grunt.task.run([
+            'clean:server',
+            'concurrent:server',<% if (autoPre) { %>
+            'autoprefixer:server',<% } %>
+            'connect:livereload',
+            'watch'
+        ]);
+    });
+
+    grunt.registerTask('test', [
+        // TODO!!!!!!
+    ]);
+
 };
