@@ -73,7 +73,7 @@ MilagroGenerator.prototype.askForTools = function askForTools() {
     name: 'cssFramework',
     type: 'list',
     message: 'Framework CSS?',
-    choices: ['Foundation', 'Bootsrap', 'None']
+    choices: ['Foundation', 'Bootstrap', 'None']
   },
   {
     name: 'autoPre',
